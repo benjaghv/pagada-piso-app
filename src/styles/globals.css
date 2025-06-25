@@ -1,6 +1,252 @@
+/* Pixel Art Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 @import "tailwindcss";
 
 @theme {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Pixel Art Styles */
+:root {
+  --pixel-bg: #0f0f23;
+  --pixel-primary: #00ff41;
+  --pixel-secondary: #ff6b35;
+  --pixel-accent: #ffd700;
+  --pixel-text: #ffffff;
+  --pixel-border: #333333;
+  --pixel-shadow: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--pixel-bg);
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 107, 53, 0.1) 0%, transparent 50%);
+  font-family: 'Press Start 2P', monospace;
+  color: var(--pixel-text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Pixel Art Container */
+.pixel-container {
+  background: var(--pixel-bg);
+  border: 3px solid var(--pixel-primary);
+  box-shadow: 
+    0 0 0 3px var(--pixel-shadow),
+    inset 0 0 0 1px var(--pixel-primary);
+  padding: 20px;
+  position: relative;
+}
+
+.pixel-container::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  background: linear-gradient(45deg, var(--pixel-primary), var(--pixel-secondary));
+  z-index: -1;
+}
+
+/* Pixel Art Button */
+.pixel-button {
+  background: var(--pixel-primary);
+  color: var(--pixel-bg);
+  border: 3px solid var(--pixel-shadow);
+  padding: 12px 24px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s ease;
+  box-shadow: 
+    0 4px 0 var(--pixel-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.pixel-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 0 var(--pixel-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.pixel-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 2px 0 var(--pixel-shadow),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Pixel Art Input */
+.pixel-input {
+  background: var(--pixel-bg);
+  border: 3px solid var(--pixel-primary);
+  color: var(--pixel-text);
+  padding: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  outline: none;
+  box-shadow: 
+    0 0 0 1px var(--pixel-shadow),
+    inset 0 0 0 1px var(--pixel-primary);
+}
+
+.pixel-input:focus {
+  border-color: var(--pixel-accent);
+  box-shadow: 
+    0 0 0 1px var(--pixel-shadow),
+    inset 0 0 0 1px var(--pixel-accent),
+    0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Pixel Art Radio */
+.pixel-radio {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid var(--pixel-primary);
+  background: var(--pixel-bg);
+  position: relative;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.pixel-radio:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background: var(--pixel-primary);
+}
+
+/* Pixel Art Table */
+.pixel-table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--pixel-bg);
+  border: 3px solid var(--pixel-primary);
+  box-shadow: 
+    0 0 0 3px var(--pixel-shadow),
+    inset 0 0 0 1px var(--pixel-primary);
+}
+
+.pixel-table th {
+  background: var(--pixel-primary);
+  color: var(--pixel-bg);
+  padding: 12px;
+  border: 2px solid var(--pixel-shadow);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.pixel-table td {
+  padding: 12px;
+  border: 2px solid var(--pixel-primary);
+  font-size: 10px;
+}
+
+.pixel-table tr:nth-child(even) {
+  background: rgba(0, 255, 65, 0.1);
+}
+
+/* Pixel Art Title */
+.pixel-title {
+  color: var(--pixel-primary);
+  text-shadow: 
+    2px 2px 0 var(--pixel-shadow),
+    4px 4px 0 var(--pixel-secondary);
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+/* Pixel Art Subtitle */
+.pixel-subtitle {
+  color: var(--pixel-accent);
+  text-shadow: 
+    1px 1px 0 var(--pixel-shadow),
+    2px 2px 0 var(--pixel-secondary);
+  font-size: 16px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+/* Pixel Art Label */
+.pixel-label {
+  color: var(--pixel-text);
+  font-size: 10px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Pixel Art Radio Group */
+.pixel-radio-group {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.pixel-radio-group label {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+/* Loading Animation */
+@keyframes pixel-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pixel-loading {
+  animation: pixel-pulse 1s infinite;
+}
+
+/* Success Animation */
+@keyframes pixel-success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pixel-success {
+  animation: pixel-success 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pixel-title {
+    font-size: 18px;
+  }
+  
+  .pixel-subtitle {
+    font-size: 14px;
+  }
+  
+  .pixel-button {
+    font-size: 10px;
+    padding: 10px 20px;
+  }
+  
+  .pixel-input {
+    font-size: 10px;
+    padding: 10px;
+  }
 }

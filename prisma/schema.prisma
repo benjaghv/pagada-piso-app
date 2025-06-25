@@ -72,3 +72,12 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+//invitados
+model Guest {
+  id        String   @id @default(cuid())
+  name      String
+  attending Boolean
+  points    Int      @default(20)
+  createdAt DateTime @default(now())
+}
